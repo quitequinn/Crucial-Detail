@@ -19,31 +19,6 @@ module.exports = function(grunt) {
         }
       }
     },
-    jshint: {
-      options: {
-        curly: true,
-        eqeqeq: true,
-        immed: true,
-        latedef: true,
-        newcap: true,
-        noarg: true,
-        sub: true,
-        undef: true,
-        unused: true,
-        boss: true,
-        eqnull: true,
-        browser: true,
-        globals: {
-          jQuery: true
-        }
-      },
-      gruntfile: {
-        src: 'Gruntfile.js'
-      },
-      lib_test: {
-        src: ['lib/**/*.js', 'test/**/*.js']
-      }
-    },
     autoprefixer: {
       dist: {
         files: {
@@ -65,7 +40,7 @@ module.exports = function(grunt) {
       autoprefixer: {
         files: ['wp-content/themes/crucial-detail/src/css/style.css'],
         tasks: ['autoprefixer']
-      }
+      },
       uglify: {
         files: ['wp-content/themes/crucial-detail/src/js/*.js'],
         tasks: ['uglify']
@@ -75,10 +50,9 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks("grunt-contrib-sass");
-  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('default', ['sass', 'autoprefixer', 'jshint', 'uglify']);
+  grunt.registerTask('default', ['sass', 'autoprefixer', 'uglify']);
 
 };
