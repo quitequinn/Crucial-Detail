@@ -45,6 +45,10 @@
     <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
 
+	<script src="//use.typekit.net/lgt3suf.js"></script>
+	<script>try{Typekit.load();}catch(e){}</script>
+	<link href="//cloud.webtype.com/css/f7ac8343-8a04-44d6-897e-9abc0a4dbf64.css" rel="stylesheet" type="text/css" />
+
     <!-- HTML5 Shim for IE 6-8 -->
     <!--[if lt IE 9]>
       <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
