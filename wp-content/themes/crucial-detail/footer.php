@@ -10,7 +10,7 @@
 
 	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
+	<footer id="colophon" class="site-footer container" role="contentinfo">
 		<section class="footer">
 
 		</section>
@@ -19,7 +19,7 @@
 
 <!-- Javascript -->
 <!-- In the footer for better performance -->
-<script src="<?php echo get_bloginfo('template_directory');?>/src/js/build/scripts.js"></script>
+<script src="<?php echo get_bloginfo('template_directory');?>/build/js/scripts.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 <!-- (Via HTML5 Boilerplate: http://html5boilerplate.com/) -->

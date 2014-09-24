@@ -56,19 +56,22 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 
 <!-- Apple Touch Icons -->
 <!-- https://github.com/audreyr/favicon-cheat-sheet -->
-<link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_bloginfo('template_directory'); ?>/img/apple-touch-icon-152.png">
+<!-- <link rel="apple-touch-icon" sizes="152x152" href="<?php echo get_bloginfo('template_directory'); ?>/img/apple-touch-icon-152.png">
 <link rel="apple-touch-icon" sizes="144x144" href="<?php echo get_bloginfo('template_directory'); ?>/img/apple-touch-icon-144.png">
 <link rel="apple-touch-icon" sizes="120x120" href="<?php echo get_bloginfo('template_directory'); ?>/img/apple-touch-icon-120.png">
 <link rel="apple-touch-icon" sizes="114x114" href="<?php echo get_bloginfo('template_directory'); ?>/img/apple-touch-icon-114.png">
 <link rel="apple-touch-icon" sizes="72x72" href="<?php echo get_bloginfo('template_directory'); ?>/img/apple-touch-icon-72.png">
-<link rel="apple-touch-icon" href="<?php echo get_bloginfo('template_directory'); ?>/img/apple-touch-icon-57.png">
+<link rel="apple-touch-icon" href="<?php echo get_bloginfo('template_directory'); ?>/img/apple-touch-icon-57.png"> -->
 
 <!-- MS Homescreen Icons -->
-<meta name="msapplication-TileColor" content="#0088cc">
+<!-- <meta name="msapplication-TileColor" content="#0088cc">
 <meta name="msapplication-TileImage" content="img/ms-touch-icon.png">
+ -->
+
+<?php wp_head(); ?>
 
 <!-- Stylesheet -->
-<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory');?>/src/css/build/style.css" type="text/css">
+<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory');?>/build/css/style.css" type="text/css">
 
 <!-- CDN Dependencies -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
@@ -86,20 +89,23 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 <![endif]-->
 
-<?php wp_head(); ?>
 </head>
 
 <body <?php body_class(); ?>>
 
 <!-- Old Browser Warning -->
-<!-- If you're supporting IE 6-7, remove this -->
-<!--[if lt IE 8]>
+<!--[if lt IE 9]>
+  <section class="container">
+    Did you know that your web browser is a bit old? Some of the content on this site might not work right as a result. <a href="http://whatbrowser.org">Upgrade your browser</a> for a faster, better, and safer web experience.
+  </section>
+<![endif]-->
+<!--[if lt IE 9]>
   <section class="container">
     Did you know that your web browser is a bit old? Some of the content on this site might not work right as a result. <a href="http://whatbrowser.org">Upgrade your browser</a> for a faster, better, and safer web experience.
   </section>
 <![endif]-->
 
-<div id="page" class="hfeed site">
+<div id="page" class="hfeed site container">
 	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'crucial-detail' ); ?></a>
 
 	<header id="masthead" class="site-header" role="banner">

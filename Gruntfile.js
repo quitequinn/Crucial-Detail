@@ -33,6 +33,16 @@ module.exports = function(grunt) {
     //     dest: 'wp-content/themes/crucial-detail/build/js/'
     //   }]
     // },
+    copy: {
+      main: {
+        files: [{
+            expand: true, 
+            cwd: 'wp-content/themes/crucial-detail/src/js/', 
+            src: ['**/*.js'], 
+            dest: 'wp-content/themes/crucial-detail/build/js'},
+        ]
+      }
+    },
     responsive_images: {
       myTask: {
         options: {
@@ -79,7 +89,7 @@ module.exports = function(grunt) {
           cwd: 'wp-content/themes/crucial-detail/src/svg/',
           src: ['**/*.svg'],
           dest: 'wp-content/themes/crucial-detail/build/svg/',
-          ext: '.min.svg'
+          ext: '.svg'
         }]
       }
     },
@@ -100,18 +110,21 @@ module.exports = function(grunt) {
     },
     watch: {
       sass: {
-
-        files: ["wp-content/themes/crucial-detail/src/sass/*.scss"],
+        files: ["wp-content/themes/crucial-detail/src/sass/**/*.scss"],
         tasks: ["sass"]
       },
       autoprefixer: {
         files: ['wp-content/themes/crucial-detail/src/css/style.css'],
         tasks: ['autoprefixer']
-      }
-      // , uglify: {
+      },
+      // uglify: {
       //   files: ['wp-content/themes/crucial-detail/src/js/*.js'],
       //   tasks: ['uglify']
-      // }
+      // },
+      copy:{
+        files: ["wp-content/themes/crucial-detail/src/js/**/*.js"],
+        tasks: ["copy"]
+      }
     }
   });
 
@@ -126,6 +139,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-newer');
   // grunt.loadNpmTasks('grunt-contrib-uglify');
 
-  grunt.registerTask('default', ['sass', 'autoprefixer', 'responsive_images', 'svgmin', 'webfont', 'newer:imagemin:dynamic']);
+  grunt.registerTask('default', ['sass', 'autoprefixer', 'responsive_images', 'svgmin', 'webfont', 'copy', 'newer:imagemin:dynamic']);
 
 };
