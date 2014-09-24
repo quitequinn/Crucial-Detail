@@ -1,4 +1,13 @@
 /**
+ * Kraken v3.8.1
+ * A lightweight front-end boilerplate, by Chris Ferdinandi.
+ * http://github.com/cferdinandi/kraken
+ * 
+ * Free to use under the MIT License.
+ * http://gomakethings.com/mit/
+ */
+
+/**
 * @preserve HTML5 Shiv 3.7.2 | @afarkas @jdalton @jon_neal @rem | MIT/GPL2 Licensed
 */
 ;(function(window, document) {

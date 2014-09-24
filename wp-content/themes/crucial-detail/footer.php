@@ -11,13 +11,24 @@
 	</div><!-- #content -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'crucial-detail' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'crucial-detail' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'crucial-detail' ), 'Crucial Detail', '<a href="http://underscores.me/" rel="designer">Underscores.me</a>' ); ?>
-		</div><!-- .site-info -->
+		<section class="footer">
+
+		</section>
 	</footer><!-- #colophon -->
 </div><!-- #page -->
+
+<!-- Javascript -->
+<!-- In the footer for better performance -->
+<script src="<?php echo get_bloginfo('template_directory');?>/src/js/build/scripts.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+<!-- (Via HTML5 Boilerplate: http://html5boilerplate.com/) -->
+<script>
+	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+	(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
+	s.parentNode.insertBefore(g,s)}(document,'script'));
+</script>
 
 <?php wp_footer(); ?>
 
