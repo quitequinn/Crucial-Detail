@@ -1,4 +1,0 @@
-Crucial-Detail
-==============
-
-Crucial Detail
