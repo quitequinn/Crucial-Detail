@@ -36,20 +36,33 @@ p {
  */
 
 .text-small {
-	font-size: calc-em(15px);
+	font-size: 16px;
+	line-height: 24px;
 }
+$text-small: 16px;
 
 .text-tall {
-	font-size: calc-em(19px);
-	line-height: 1.4;
+	font-size: 20px;
+	line-height: 28px;
 }
+$text-tall: 20px;
 
 @media (min-width: $bp-medium) {
 	.text-tall {
-		font-size: calc-em(21px);
+		font-size: 24px;
+		font-size: 28px;
 	}
+	$text-tall: 24px;
 }
 
+/**
+ * Small Caps
+ */
+ @mixin smallcaps($font-size) {
+	text-transform: uppercase;
+	letter-spacing: .1em;
+	font-size: $font-size;
+}
 
 /**
  * Alternate text colors
@@ -164,6 +177,13 @@ dt {
 	list-style: none;
 }
 
+/**
+ * Type-size-calc
+ */
+ @mixin type-size-calc($font-size) {
+	font-size: $font-size;
+	line-height: $font-size*1.4;
+}
 
 /**
  * Heading styling for h1 through h6 elements.
@@ -171,7 +191,7 @@ dt {
  */
 
 h1, h2, h3, h4, h5, h6 {
-	line-height: 1.2;
+	line-height: 1.3;
 	font-weight: normal;
 	margin-bottom: 1em;
 	padding-top: 1em;
@@ -180,28 +200,30 @@ h1, h2, h3, h4, h5, h6 {
 
 h1,
 .h1 {
-	font-size: calc-em(24px);
+	@include type-size-calc(160px);
 	padding-top: .5em;
 }
 
 h2,
 .h2 {
-	font-size: calc-em(21px);
+	@include type-size-calc(120px);
 }
 
 h3,
 .h3 {
-	font-size: calc-em(19px);
+	@include type-size-calc(64px);
 }
 
 h4, h5, h6,
 .h4, .h5, .h6 {
-	font-size: calc-em(15px);
+	@include type-size-calc(20px);
 }
 
 h4,
 .h4 {
 	text-transform: uppercase;
+	@include smallcaps(20px);
+	font-weight: 600;
 }
 
 @media (min-width: $bp-medium) {

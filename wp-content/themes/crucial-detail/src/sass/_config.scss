@@ -9,7 +9,7 @@
 
 // Colors
 $color-primary: #0088cc;
-$color-black: #272727;
+$color-black: #000014;
 $color-white: #ffffff;
 
 $color-success: #377f31; // Green
@@ -17,26 +17,26 @@ $color-danger: #880e14; // Red
 $color-warning: #dba909; // Yellow
 $color-code: #dd1144;
 
-$color-gray-dark: #808080;
-$color-gray-light: #e5e5e5;
+$color-gray-dark: rgb(47, 47, 61);
+$color-gray-light: rgba(0, 0, 0, 0.75);
 
 
 // Font Stacks
-$font-primary: "Helvetica Neue", Arial, sans-serif;
-$font-secondary: Georgia, Times, serif;
+$font-primary: "Brando Hairline", serif;
+$font-secondary: "freight-text-pro", serif;
 $font-monospace: Menlo, Monaco, "Courier New", monospace;
 
 
 // Breakpoints
-$bp-xsmall: 20em;
-$bp-small: 30em;
-$bp-medium: 40em;
-$bp-large: 60em;
-$bp-xlarge: 80em;
+$bp-xsmall: 450px;
+$bp-small: 600px;
+$bp-medium: 800px;
+$bp-large: 1000px;
+$bp-xlarge: 1250px;
 
 
 // Sizing
-$font-base: 100%;
+$font-base: 120%;
 $font-xlarge-screens: 125%;
 $spacing: 1.5625em;
 $container-max: 80em;
@@ -44,13 +44,17 @@ $container-width: 88%;
 
 
 // Grid
-$grid-margins: 1.4%;
+$grid-margins: 2.8%;
 $grid-sizes: ( // name: width
 	fourth: 25%,
 	third: 33.33333333333%,
 	half: 50%,
 	two-thirds: 66.666666666667%,
 	three-fourths: 75%,
+	fifth: 20%,
+	two-fifths: 40%,
+	three-fifths: 60%,
+	four-fifths: 80%,
 	full: 100%
 );
 $grid-breakpoints: ( // breakpoint, prefix, include offsets (boolean)
@@ -64,3 +68,7 @@ $grid-breakpoints: ( // breakpoint, prefix, include offsets (boolean)
 $icons: ( // name, character, color
 	("logo", "e600", null),
 );
+
+//Transition
+$trans: 0.3s;
+

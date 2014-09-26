@@ -1,0 +1,276 @@
+html, body{
+	background: $color-black;
+	color: $color-white;
+	text-rendering: optimizeLegibility;
+	font-smoothing: subpixel-antialiased;
+	-webkit-font-smoothing: subpixel-antialiased;
+}
+
+a, a:visited, .linkAlike{
+	color: rgba($color-white, 0.5);
+	transition: color $trans;
+	text-decoration: none;
+}
+
+h4, h5, h6, span, ul, ol, p, h4 a, h5 a, h6 a, ul a, ol a, p a{
+	font-family: "freight-sans-pro", sans-serif;
+	text-rendering: optimizeLegibility;
+	font-smoothing: antialiased;
+	-webkit-font-smoothing: antialiased;
+}
+.content{
+	h4, h5, h6, span, ul, ol, p, h4 a, h5 a, h6 a, ul a, ol a, p a{
+		a, .linkAlike{
+		  	background-image: linear-gradient(to bottom,transparent 50%,rgba($color-white, 0.75) 50%);
+		  	background-repeat: repeat-x;
+		  	background-size: 1px 1px;
+		  	background-position: 0 90%;
+		  	text-shadow: 2px 0 $color-black,4px 0 $color-black,-2px 0 $color-black,-4px 0 $color-black;
+		}
+	}
+}
+.linkAlike:hover, a:hover{
+	color: rgba($color-white, 1);
+	text-decoration: none;
+	transition: color $trans;
+}
+h1{
+	font-family: "Brando Hairline", serif;
+}
+h2, h3{
+	font-family: "Brando Extralight", serif;
+}
+.hidder{
+	background: rgba($color-black, 0.5);
+	width: 100%;
+	height: 100%;
+	z-index: 5;
+	position: fixed;
+	transition: opacity $trans;
+}
+.centercenter{
+	display: table;
+	> div{
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+		margin: 1em auto;
+	}
+}
+//NAV BAR
+#masthead{
+	width: 100%;
+	position: fixed;
+	top: 2em;
+	.topNav{
+		width: 100%;
+		> div{
+			width: 20%;
+			display: block;
+			float: left;
+			text-align: center;
+			.iconfont {
+				font-size: 30px;
+			}
+			.linkAlike{
+				width: 28px;
+				display: inline-block;
+				height: 28px;
+				cursor: pointer;
+				.productIconBlock{
+					width: 10px;
+					height: 10px;
+					margin-right: 4px;
+					margin-bottom: 4px;
+					float: left;
+					background: rgba($color-white, 0.5);
+					transition: all $trans;
+				}
+				&:hover{
+					.productIconBlock{
+						background: rgba($color-white, 1);
+					}
+				}
+				.productIconBlock:hover{
+					width: 8px;
+					height: 8px;
+					margin: 1px 5px 5px 1px;
+					transition: all $trans;
+					color: rgba($color-white, 0.5);
+				}
+			}
+			&:nth-of-type(1){
+				text-align: left;
+			}
+
+			&:nth-of-type(2){
+				text-align: left;
+				i{
+					padding-left: 15%;
+				}
+			}
+
+			&:nth-of-type(4){
+				text-align: right;
+				i{
+					padding-right: 15%;
+				}
+			}
+			&:nth-of-type(5){
+				text-align: right;
+			}
+		}
+	}
+}
+
+//PAGE HEADER
+#pageheader{
+  background-size: cover;
+  width: 100%;
+}
+
+//HOME PAGE 
+.wordMark{
+	width: 70%;
+	max-height: 200px;
+	margin: 1em auto;
+	padding-bottom: 1em;
+	fill:$color-white;
+	svg{
+		fill:$color-white;
+	}
+}
+
+//PROGRESS BAR
+.progressBar{
+	position: fixed;
+	width: 10px;
+	bottom: 0;
+	left: -.5em;
+	li{
+		list-style: none;
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background: rgba($color-white, 0.5);
+		margin: 15px 0;
+		cursor: pointer;
+		&.current{
+			background: rgba($color-white, 1);
+			border: 2px solid $color-white;
+		}
+		&:hover{
+			border: 2px solid $color-white;
+		}
+	}
+}
+
+
+
+//FOOTER
+.smallLine{
+	width: 33.333%;
+	height: 0;
+	border-bottom: 1px solid;
+	margin: 10px auto;
+}
+.featuredProducts{	
+	margin: 0 auto 5em;
+	.productBlock{
+		background-size: cover!important;
+		@include max-screen($bp-medium){
+			width: 50%;
+		}
+		@include max-screen($bp-small){
+			width: 100%;
+			max-height: 250px;
+		}
+		.productBlockInfo{
+			height: inherit;
+			width: 100.5%;
+			background: rgba(0,0,0,.5);
+			border: 30px solid rgba(0,0,0,0.25);
+			text-align: center;
+			border: 0 solid rgba(0,0,0,0.25);
+			opacity: 0;
+			transition: all $trans;
+			@include max-screen($bp-small){
+				max-height: 250px;
+			}
+			&:hover{
+				transition: all $trans;
+				opacity: 1;
+				border: 30px solid rgba(0,0,0,0.25);
+			}
+		}
+
+	}
+}
+
+
+.footer{
+	margin-top: 2em;
+	width: 100%;
+	> div{
+		height: 60px;
+		text-align: right;
+		padding-right: 1.3em;
+		a.glyph-icon{
+			font-size: 40px;
+			color: $color-black;
+			margin: 8px 5px 0 5px;
+			opacity: 0.5;
+			transition: all $trans;
+			&:hover{
+				opacity: 1;
+				transition: all $trans;
+			}
+		}
+		a.glyph_icon_mail_circle{
+			font-size: 45px;
+			top: 1px;
+			position: relative;
+			margin-right: 0px;
+		}
+	}
+}
+footer{
+	padding-top: 2em;
+
+	.emailSubscription{
+		input{
+			background: none;
+			border: 0;
+			border-bottom: 1px solid;
+			color: $color-white!important;
+			border-radius: 0;
+			outline: none!important;
+			box-shadow: none!important;
+			padding-bottom: 0;
+			margin-bottom: 0;
+			&:active{
+				color: $color-white;
+				outline: none;
+			}
+			&:focus{
+				color: $color-white;
+				outline: none;
+			}
+		}
+	}
+
+
+
+	p, a{
+		font-size: $text-small;
+		color: rgba($color-white, 1);
+		strong{
+			@include smallcaps($text-small*0.8);
+			font-weight: 900;
+		}
+	}
+	a:hover{
+		color: rgba($color-white, 0.5);
+	}
+}
+
