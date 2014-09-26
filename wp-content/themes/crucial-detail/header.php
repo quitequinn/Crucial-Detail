@@ -72,11 +72,12 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 
 <!-- Stylesheet -->
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory');?>/build/css/style.css" type="text/css">
+<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory');?>/build/fonts/icons.css" type="text/css">
 
 <!-- CDN Dependencies -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
 
 <!-- Type Dependencies -->
@@ -104,20 +105,46 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
     Did you know that your web browser is a bit old? Some of the content on this site might not work right as a result. <a href="http://whatbrowser.org">Upgrade your browser</a> for a faster, better, and safer web experience.
   </section>
 <![endif]-->
+<div class="jsdump" style="display:none;"></div>
 
-<div id="page" class="hfeed site container">
-	<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'crucial-detail' ); ?></a>
+<a class="skip-link screen-reader-text" href="#content"><?php _e( 'Skip to content', 'crucial-detail' ); ?></a>
 
+<div class="hfeed site container">
 	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<h2 class="site-description"><?php bloginfo( 'description' ); ?></h2>
-		</div>
-
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle"><?php _e( 'Primary Menu', 'crucial-detail' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); ?>
-		</nav><!-- #site-navigation -->
+		<nav class="topNav">
+			<div class="productSidebarbutton">
+				<span class="linkAlike">
+					<div class="productIconBlock"></div>
+					<div class="productIconBlock"></div>
+					<div class="productIconBlock"></div>
+					<div class="productIconBlock"></div>
+				</span>
+			</div>	
+			<div class="thoughtbutton">
+				<a href="thoughts">
+					<i class="iconfont glyph-icon glyph_icon-idea"></i>
+				</a>
+			</div>	
+			<div class="homebutton">
+				<a href="/">
+					<i class="iconfont glyph-icon glyph_logo"></i>
+				</a>
+			</div>	
+			<div class="cartbutton">
+				<a href="cart">
+					<i class="iconfont fa fa-shopping-cart"></i>
+				</a>
+			</div>	
+			<div class="infobutton">
+				<span class="linkAlike">
+					<i class="iconfont fa fa-info-circle"></i>
+				</span>
+			</div>	
+		</nav>
 	</header><!-- #masthead -->
+</div>
+<? get_template_part( 'productBar' ); ?>
+<? get_template_part( 'progressBar' ); ?>
 
+<div id="page" class="hfeed site">
 	<div id="content" class="site-content">

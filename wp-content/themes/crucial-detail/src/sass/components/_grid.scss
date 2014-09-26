@@ -16,6 +16,8 @@
 .row {
 	margin-left: $grid-margins * -1;
 	margin-right: $grid-margins * -1;
+	margin-top: 5em;
+	margin-bottom: 5em;
 }
 
 %grid-base {
@@ -73,4 +75,50 @@
 .container,
 .row {
 	@extend .group;
+}
+
+/* No padding grid */
+.full{
+	width: 100%;
+}
+.half{
+	width: 50%;
+	@include max-screen($bp-small){
+		width: 100%;
+	}
+}
+.third{
+	width: 33.3333333%;
+	@include max-screen($bp-small){
+		width: 100%;
+	}
+}
+.quater{
+	width: 25%;
+	@include max-screen($bp-small){
+		width: 50%;
+	}
+}
+.fifth{
+	width: 20%;
+	@include max-screen($bp-small){
+		width: 100%;
+	}
+}
+.full,.half,.third,.quater,.fifth{
+	display: block;
+	float: left;
+}
+
+/* Center Wrap */
+.centerOuterWrap{
+	display: table;
+}
+
+.centerWrap{
+	display: table-cell;
+	vertical-align: middle;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center; 
 }
