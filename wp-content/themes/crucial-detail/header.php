@@ -113,7 +113,7 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 	<header id="masthead" class="site-header" role="banner">
 		<nav class="topNav">
 			<div class="productSidebarbutton">
-				<span class="linkAlike">
+				<span class="linkAlike productBarButton">
 					<div class="productIconBlock"></div>
 					<div class="productIconBlock"></div>
 					<div class="productIconBlock"></div>
@@ -145,6 +145,7 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 </div>
 <? get_template_part( 'productBar' ); ?>
 <? get_template_part( 'progressBar' ); ?>
+<? get_template_part( 'infoBar' ); ?>
 
 <div id="page" class="hfeed site">
 	<div id="content" class="site-content">
