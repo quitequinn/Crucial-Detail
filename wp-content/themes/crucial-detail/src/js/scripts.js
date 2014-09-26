@@ -4,17 +4,30 @@
 
  $( document ).ready(function() {
 
-	$( ".linkAlike" ).click(function() {
-		$('.st-pusher').toggleClass('open');
+ 	//ProductBar
+	$( ".productBarButton" ).click(function() {
+		$('body').toggleClass('openProductBar');
 		forwidth();
 	});
-	$( ".st-pusher .hidder" ).click(function() {
-		$('.st-pusher').toggleClass('open');
+	$( ".productHidder" ).click(function() {
+		$('body').toggleClass('openProductBar');
+		forwidth();
+	});
+
+ 	//InfoBar
+	$( ".infoBarButton" ).click(function() {
+		$('body').toggleClass('openInfoBar');
+		forwidth();
+	});
+	$( ".infoHidder" ).click(function() {
+		$('body').toggleClass('openInfoBar');
 		forwidth();
 	});
 
 	//LAYOUT ADJ
 	function forwidth(){
+		console.log('resize');
+
 		//masthead width
 		$('#masthead').css("width", $(".container").width());
 		
@@ -81,14 +94,22 @@
 	//ON RESIZE
 	var updateLayout = _.debounce(function(e) {
 		forwidth();
-	}, 250);
+	}, 500);
 	window.addEventListener("resize", updateLayout, false);
 
 	//ON scroll
 	var scroll = _.throttle(function(e) {
 		curSection();
-	}, 250);
+	}, 1000);
 	window.addEventListener("scroll", scroll, false);
 
+
+
+
+
+	//FOR NAV
+	if ($('.page-id-15').length > 0) {
+		$('.homebutton i').unwrap();
+	};
 
 });

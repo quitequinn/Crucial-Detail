@@ -4,8 +4,11 @@ html, body{
 	text-rendering: optimizeLegibility;
 	font-smoothing: subpixel-antialiased;
 	-webkit-font-smoothing: subpixel-antialiased;
+	overflow-y: hidden;
 }
-
+body{
+	overflow: hidden;
+}
 a, a:visited, .linkAlike{
 	color: rgba($color-white, 0.5);
 	transition: color $trans;
@@ -61,7 +64,7 @@ h2, h3{
 #masthead{
 	width: 100%;
 	position: fixed;
-	top: 2em;
+	top: 28px;
 	.topNav{
 		width: 100%;
 		> div{
@@ -273,4 +276,8 @@ footer{
 		color: rgba($color-white, 0.5);
 	}
 }
+
+
+
+
 
