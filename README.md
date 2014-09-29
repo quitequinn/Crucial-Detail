@@ -3,7 +3,7 @@ Crucial-Detail
 
 Crucial Detail
 
-Worked on Localy
+Made on local server
 
 Check in updates to Q branch for merge to master 
 https://github.com/qkeave/Crucial-Detail/
