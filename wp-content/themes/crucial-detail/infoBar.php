@@ -8,12 +8,12 @@
 <div id="st-container" class="st-container infoBar">
 	<div class="st-pusher">
 
-		<div class="grid-third">
+		<div class="grid-third socialPrimary">
 			<a class="glyph-icon glyph_icon_mail_circle" href="#"></a><br/>
 			<a class="glyph-icon glyph_icon-facebook" href="#"></a><br/>
 			<a class="glyph-icon glyph_icon-twitter" href="#"></a>
 		</div>
-		<div class="grid-two-third">
+		<div class="grid-two-third offset-third">
 			<div class="grid-full">
 				<h2 class="no-space"><?php echo get_the_title( 19 );?></h2>
 				<a class="infoBarButton" href="#"><i class="fa fa-times"></i></a>

@@ -87,6 +87,24 @@
 			color: rgba($color-white, 0.5);
 		}
 	}
+	.socialPrimary{
+		position: fixed;
+		top: 204px;
+		.glyph-icon{
+			margin-top: 16px;
+			font-size: 30px;
+			margin-left: 8px;
+		}
+		.glyph-icon.glyph_icon_mail_circle{
+			margin-top: 0px;
+			font-size: 35px;
+			margin-bottom: -1px;
+			margin-left: 4px;
+		}
+		a:before{
+			color: white;
+		}
+	}
 }
 
 .openInfoBar{
