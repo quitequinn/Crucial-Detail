@@ -47,7 +47,7 @@ echo $feat_image ?>') no-repeat center center;">
 	<section class="footer">
 		<div class="third"></div>
 		<div class="third bg-gray-dark"></div>
-		<div class="third bg-white">
+		<div class="third bg-white socialPrimary">
 			<a class="glyph-icon glyph_icon_mail_circle" href="#"></a>
 			<a class="glyph-icon glyph_icon-facebook" href="#"></a>
 			<a class="glyph-icon glyph_icon-twitter" href="#"></a>
