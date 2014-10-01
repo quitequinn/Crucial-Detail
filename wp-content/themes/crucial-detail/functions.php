@@ -140,8 +140,17 @@ function create_post_type() {
   register_post_type( 'product',
     array(
       'labels' => array(
-        'name' => __( 'Products' ),
-        'singular_name' => __( 'Product' )
+        'name' 				 => __( 'Products' ),
+        'singular_name' 	 => __( 'Product' ),
+	    'edit_item'          => __( 'Edit Product' ),
+	    'new_item'           => __( 'New Product' ),
+	    'all_items'          => __( 'All Products' ),
+	    'view_item'          => __( 'View Product' ),
+	    'search_items'       => __( 'Search Products' ),
+	    'not_found'          => __( 'No products found' ),
+	    'not_found_in_trash' => __( 'No products found in the Trash' ), 
+	    'parent_item_colon'  => '',
+	    'menu_name'          => 'Products'
       ),
       'public' => true,
       'has_archive' => true,
