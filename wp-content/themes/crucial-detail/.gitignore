@@ -3,6 +3,7 @@ node_modules
 test/results
 test/coverage
 .sass-cache
+build
 
 ## OS X
 .DS_Store
