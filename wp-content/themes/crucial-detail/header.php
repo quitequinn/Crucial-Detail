@@ -126,7 +126,7 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 				</a>
 			</div>	
 			<div class="homebutton">
-				<a href="/">
+				<a class="homebuttonLink" href="/">
 					<i class="iconfont glyph-icon glyph_logo"></i>
 				</a>
 			</div>	
@@ -136,13 +136,14 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 				</a>
 			</div>	
 			<div class="infobutton">
-				<span class="linkAlike">
+				<span class="linkAlike infoBarButton infoLink">
 					<i class="iconfont fa fa-info-circle"></i>
 				</span>
 			</div>	
 		</nav>
 	</header><!-- #masthead -->
 </div>
+<div class="hidder"></div>
 <? get_template_part( 'productBar' ); ?>
 <? get_template_part( 'progressBar' ); ?>
 <? get_template_part( 'infoBar' ); ?>

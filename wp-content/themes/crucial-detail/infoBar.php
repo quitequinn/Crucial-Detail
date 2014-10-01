@@ -5,33 +5,30 @@
  * @package Crucial Detail
  */
 ?>
-<!-- 
-<div class="infoHidder"></div>		
 <div id="st-container" class="st-container infoBar">
 	<div class="st-pusher">
-		<nav class="st-menu st-effect-7" id="menu-7">
-		<h4 class="container">infos</h4>
-		<a class="infoBarButton" href="#"><i class="fa fa-times"></i></a>
 
-		<div class="featuredinfos row no-space-top">
-			<?  $args = array( 
-					'post_type' => 'info', 
-					'posts_per_page' => 99999);
-				$loop = new WP_Query( $args );
-				while ( $loop->have_posts() ) : $loop->the_post();?>
-				  <div class="infoIndexBlock half" style="background: url('<?$feat_image=wp_get_attachment_url(get_post_thumbnail_id($post->ID));echo $feat_image ?>') no-repeat center center;">
-					<div class="infoBlockInfo centerOuterWrap">
-						<a class="centerWrap" href="<?php the_permalink() ?>">
-							<h3 class="no-space"><? echo get_field( "price" ); ?></h3>
-							<h4 class="no-space-top"><? the_title(); ?></h4>
-						</a>
-					</div>
-				  </div>
-				<? endwhile;
-				wp_reset_postdata(); ?>
+		<div class="grid-third">
+			<a class="glyph-icon glyph_icon_mail_circle" href="#"></a><br/>
+			<a class="glyph-icon glyph_icon-facebook" href="#"></a><br/>
+			<a class="glyph-icon glyph_icon-twitter" href="#"></a>
+		</div>
+		<div class="grid-two-third">
+			<div class="grid-full">
+				<h2 class="no-space"><?php echo get_the_title( 19 );?></h2>
+				<a class="infoBarButton" href="#"><i class="fa fa-times"></i></a>
+				<?php echo apply_filters('the_content', get_page_by_title( 'info' ) -> post_content); ?>
 			</div>
-		</nav>
 
+			<div class="grid-half">
+				<?php the_field('awards', 19); ?>
+				<?php the_field('press', 19); ?>
+				<?php the_field('apearances', 19); ?>
+			</div>
+			<div class="grid-half">
+				<?php the_field('locations', 19); ?>
+			</div>
+		</div>
 	</div>
-</div> -->
+</div>
 

@@ -6,7 +6,6 @@
  */
 ?>
 
-<div class="productHidder"></div>		
 <div id="st-container" class="st-container productBar">
 	<div class="st-pusher">
 		<nav class="st-menu st-effect-7" id="menu-7">
