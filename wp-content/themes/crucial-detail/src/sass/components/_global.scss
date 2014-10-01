@@ -8,6 +8,10 @@ html, body{
 }
 body{
 	overflow: hidden;
+	left: 0;
+	right: 0;
+	position: relative;
+	transition: left $trans;
 }
 a, a:visited, .linkAlike{
 	color: rgba($color-white, 0.5);
@@ -15,7 +19,7 @@ a, a:visited, .linkAlike{
 	text-decoration: none;
 }
 
-h4, h5, h6, span, ul, ol, p, h4 a, h5 a, h6 a, ul a, ol a, p a{
+h1, h2, h3, h4, h5, h6, span, ul, ol, p, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, ul a, ol a, p a{
 	font-family: "freight-sans-pro", sans-serif;
 	text-rendering: optimizeLegibility;
 	font-smoothing: antialiased;
@@ -37,17 +41,17 @@ h4, h5, h6, span, ul, ol, p, h4 a, h5 a, h6 a, ul a, ol a, p a{
 	text-decoration: none;
 	transition: color $trans;
 }
-h1{
+h1, h2{
 	font-family: "Brando Hairline", serif;
 }
-h2, h3{
+h3{
 	font-family: "Brando Extralight", serif;
 }
 .hidder{
 	background: rgba($color-black, 0.5);
 	width: 100%;
 	height: 100%;
-	z-index: 5;
+	z-index: -1;
 	position: fixed;
 	transition: opacity $trans;
 }
@@ -61,25 +65,40 @@ h2, h3{
 	}
 }
 //NAV BAR
+.curPage{
+	cursor: default;
+	color: rgba($color-white, 1);
+}
 #masthead{
 	width: 100%;
-	position: fixed;
+	position: absolute;
 	top: 28px;
 	.topNav{
 		width: 100%;
 		> div{
 			width: 20%;
+			min-height: 1px;
 			display: block;
 			float: left;
 			text-align: center;
 			.iconfont {
 				font-size: 30px;
 			}
+			.productBarButton, .homebuttonLink, .infoLink{
+				position: fixed;
+			}
+			.homebuttonLink{
+				margin-left: -15px;
+			}
+			.infoLink{
+				margin-left: -25px;
+			}
 			.linkAlike{
 				width: 28px;
 				display: inline-block;
 				height: 28px;
 				cursor: pointer;
+
 				.productIconBlock{
 					width: 10px;
 					height: 10px;

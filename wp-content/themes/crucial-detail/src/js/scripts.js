@@ -7,26 +7,20 @@
  	//ProductBar
 	$( ".productBarButton" ).click(function() {
 		$('body').toggleClass('openProductBar');
-		forwidth();
-	});
-	$( ".productHidder" ).click(function() {
-		$('body').toggleClass('openProductBar');
-		forwidth();
 	});
 
  	//InfoBar
 	$( ".infoBarButton" ).click(function() {
 		$('body').toggleClass('openInfoBar');
-		forwidth();
 	});
-	$( ".infoHidder" ).click(function() {
-		$('body').toggleClass('openInfoBar');
-		forwidth();
+
+	$( ".hidder" ).click(function() {
+		$('body').removeClass('openProductBar');
+		$('body').removeClass('openInfoBar');
 	});
 
 	//LAYOUT ADJ
 	function forwidth(){
-		console.log('resize');
 
 		//masthead width
 		$('#masthead').css("width", $(".container").width());
@@ -109,7 +103,8 @@
 
 	//FOR NAV
 	if ($('.page-id-15').length > 0) {
-		$('.homebutton i').unwrap();
+		$('.homebutton i').parent().attr('href','#');
+		$('.homebutton i').parent().addClass('curPage');
 	};
 
 });

@@ -1,33 +1,29 @@
-.st-container{
+.st-container.infoBar{
 	overflow: hidden;
 	position: fixed;
-	perspective: 1500px;
-	perspective-origin: 0% 50%;
 	z-index: -1;
-	left: 0;
+	right: -600px;
+	width: 600px;
 	height: 100%;
+	transition: all $trans;
 	background: $color-black;
-	.productBarButton{
+	.infoBarButton{
 		top: 21px;
 		position: absolute;
-		left: 360px;
-	}
-	.half{
-		width: 200px;
+		right: 540px;
+		font-size: 29px;
+		opacity: .5;
 	}
 	.st-pusher{
 		position: relative;
 		transition: all $trans;
-		// display: block;
-		// left: -400px;
-		// height: 100%;
-		// background: $color-black;
-		// top: 0;
-		// transition: left $trans;
-		transform-style: preserve-3d;
 		min-height: 100%;
 		background: $color-gray-dark;
-		
+		max-height: 100%;
+		overflow: scroll;
+		position: absolute;
+		padding-bottom: 5em;
+
 		&::after {
 			position: absolute;
 			top: 0;
@@ -42,24 +38,21 @@
 
 		.st-menu {
 			width: 0px;
-			transform: translate3d(-100%, 0, 0) rotateY(-90deg);
-			transform-origin: 100% 50%;
 			background: $color-gray-dark;
-			transform-style: preserve-3d;
 			width: 400px;
 		}
-		.productSidebar{
+		.infoSidebar{
 			z-index: 9;
 			position: relative;
 		}
-		.featuredProducts{	
-			.productIndexBlock{
+		.featuredinfos{	
+			.infoIndexBlock{
 				background-size: cover!important;
 				@include max-screen($bp-small){
 					width: 100%;
 					max-height: 250px;
 				}
-				.productBlockInfo{
+				.infoBlockInfo{
 					height: inherit;
 					width: 100.5%;
 					background: rgba(0,0,0,.5);
@@ -81,49 +74,41 @@
 			}
 		}
 	}
+	.grid-half{
+		p, a{
+			font-size: $text-small;
+			color: rgba($color-white, 1);
+			strong{
+				@include smallcaps($text-small*0.8);
+				font-weight: 900;
+			}
+		}
+		a:hover{
+			color: rgba($color-white, 0.5);
+		}
+	}
 }
-.productHidder{
-	background: rgba(0,0,0,.5);
-	display: none;
-	opacity: 0;
-	position: fixed;
-	top: 0;
-	left: 0;
-	right: 0;
-	bottom: 0;
-	transition: all $trans;
-	z-index: -1;
-}
-.openProductBar{
-	transition:all $trans;
-	padding-left: 400px;
 
-	.productHidder{
+.openInfoBar{
+	transition:right $trans;
+	right: 500px;
+	left: initial;
+
+	.hidder{
 		z-index: 1;
 		display: block;
 		opacity: 1;
 		transition: all $trans;
 	}
-	.st-container{
+	.st-container.infoBar{
+		transition:all $trans;
 		z-index: 5;
+		right: 0px;
+		box-shadow: 2px 20px 20px rgba(0,0,0,.5);
+		border-right: 1px solid #222;
+
 		.st-pusher{
-			// left: 0;
-			// transition: left $trans;
-			z-index: 9;
-			position: relative;
-			display: block;
-			transform: translate3d(400px, 0, 0);
-			&::after {
-				width: 100%;
-				height: 100%;
-				opacity: 1;
-				transition: all $trans;
-			}	
-			.st-menu{
-				visibility: visible;
-				transition: all $trans;
-				transform: translate3d(-100%, 0, 0) rotateY(0deg);
-			}
+		
 		}
 	}
 }
