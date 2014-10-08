@@ -26,11 +26,13 @@
 		$('#masthead').css("width", $(".container").width());
 		
 		var winH = '.winH{ height:'+ $(window).height() +'px;}'; 
+		var winHalf = '.winHalf{ top:'+ ($(window).height()/2) +'px;}'; 
+		var hBottom = '.hbottom{ margin-top:'+ ($(window).height() - $('.hbottom').height() - 100) +'px;}'; 
 		var productSquare = '.productBlock{height:'+ $(".productBlock").width() +'px;}'
 		var productIndexSquare = '.productIndexBlock{height:'+ $(".productIndexBlock").width() +'px;}'
 
 		//var styling = '<style> .progressBar{margin-top:-'+ $('.progressBar').height()/2 +'px;} .winH{ height:'+ $(window).height() +'px;}</style>'
-		var styling = '<style>'+winH+productSquare+productIndexSquare+'</style>'
+		var styling = '<style>'+winH+winHalf+hBottom+productSquare+productIndexSquare+'</style>'
 		$('.jsdump').html(styling);
 	}
 	forwidth();
@@ -47,7 +49,7 @@
 	//click nav
 	$(".progressBar ul li").click(function() {
 	    $('html, body').animate({
-	        scrollTop: $('.'+$(this).find('a').attr('data-target')).offset().top
+	        scrollTop: $('.'+$(this).find('a').attr('data-target')).offset().top - 50
 	    }, 1000);
 	    setTimeout(function(){curSection(); },1000);
 	});
@@ -97,14 +99,36 @@
 	}, 1000);
 	window.addEventListener("scroll", scroll, false);
 
-
-
-
-
 	//FOR NAV
 	if ($('.page-id-15').length > 0) {
 		$('.homebutton i').parent().attr('href','#');
 		$('.homebutton i').parent().addClass('curPage');
 	};
+
+});
+
+$(window).load(function() {
+
+	$('.flexslider').flexslider({
+		prevText: "",
+		nextText: "",
+		slideshow: false,     
+		directionNav: false,
+    	contolNav: false,
+		start: function(slider) {
+	    	$('.slides li img').click(function(event){
+		        event.preventDefault();
+		        slider.flexAnimate(slider.getTarget("next"));
+	    	});
+			$('.flexprev').on('click', function(event){
+		        event.preventDefault();
+		        slider.flexAnimate(slider.getTarget("prev"));
+			});
+			$('.flexnext').on('click', function(event){
+		        event.preventDefault();
+		        slider.flexAnimate(slider.getTarget("next"));
+			});
+	    }
+	});
 
 });
