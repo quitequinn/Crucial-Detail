@@ -20,6 +20,10 @@ body{
 	z-index: 1;
 }
 
+ol, ul {
+margin-left: 0;
+}
+
 a, a:visited, .linkAlike{
 	color: rgba($color-white, 0.5);
 	transition: color $trans;
@@ -44,6 +48,9 @@ h1, h2, h3, h4, h5, h6, span, ul, ol, p, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, ul 
 		  	text-shadow: 2px 0 $color-black,4px 0 $color-black,-2px 0 $color-black,-4px 0 $color-black;
 		}
 	}
+}
+#content{
+	overflow-x:hidden;
 }
 .linkAlike:hover, a:hover{
 	color: rgba($color-white, 1);
@@ -123,13 +130,13 @@ h3{
 						background: rgba($color-white, 1);
 					}
 				}
-				.productIconBlock:hover{
-					width: 8px;
-					height: 8px;
-					margin: 1px 5px 5px 1px;
-					transition: all $trans;
-					color: rgba($color-white, 0.5);
-				}
+				// .productIconBlock:hover{
+				// 	width: 8px;
+				// 	height: 8px;
+				// 	margin: 1px 5px 5px 1px;
+				// 	transition: all $trans;
+				// 	color: rgba($color-white, 0.5);
+				// }
 			}
 			&:nth-of-type(1){
 				text-align: left;
@@ -157,7 +164,7 @@ h3{
 
 //PAGE HEADER
 #pageheader{
-  background-size: cover;
+  background-size: cover!important;
   width: 100%;
 }
 
@@ -178,7 +185,8 @@ h3{
 	position: fixed;
 	width: 10px;
 	bottom: 0;
-	left: -.5em;
+	left: 20px;
+	z-index: 99;
 	li{
 		list-style: none;
 		width: 10px;
@@ -362,4 +370,83 @@ footer{
 .tags a:first-of-type:before {
 	content: '';
 	color: red;
+}
+
+//page share
+.productShare{
+	position: fixed;
+	right: 1.35em;
+	font-size: 20px;
+	width: 30px;
+	top: 64px;
+	z-index: 99;
+	a{
+		margin-bottom: 10px;
+		display: block;
+	}
+	a:hover{
+		opacity: 1;
+	}
+}
+
+//Specs
+.floatRight{
+	float: right;
+}
+.specs{
+	h1{
+		height: 208px;
+		margin-top: -17px;
+	}
+	.buy{
+		a, div{
+			width: 100%;
+			display: table;
+			background: $color-white;
+			margin: 1em 0;
+			height: 48px;
+			span{
+				color: $color-black;
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+	}
+}
+
+
+//DROP INS
+.dropIns{
+	.section{
+		margin: 80px auto;
+		@include max-screen($bp-medium){
+			margin: 56px auto;
+		}
+		@include max-screen($bp-small){
+			margin: 32px auto;
+		}
+	}
+}
+.dropIn-picture{
+	.imgDiv{
+		height:500px; 
+		display: table;
+		width: 100%;
+		.imgText{
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			&.imgOverlay{
+				background: rgba($color-black,.5);
+			}
+		}
+	}
+
+}
+.dropIn-video{
+	width: 100%;
+	iframe{
+		width: 100%;
+	}
 }
