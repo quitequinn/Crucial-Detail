@@ -74,6 +74,8 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory');?>/build/css/style.css" type="text/css">
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory');?>/build/fonts/icons.css" type="text/css">
 
+<link rel="stylesheet" href="<?php echo get_bloginfo('template_directory');?>/vendor/flexslider/flexslider.css" type="text/css">
+
 <!-- CDN Dependencies -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>

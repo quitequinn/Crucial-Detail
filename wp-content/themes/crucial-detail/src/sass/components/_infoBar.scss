@@ -74,9 +74,15 @@
 			}
 		}
 	}
+	.grid-full{
+		p{
+			padding-right: .5em;
+		}
+	}
 	.grid-half{
 		p, a{
 			font-size: $text-small;
+			line-height: $text-small-lineHeight;
 			color: rgba($color-white, 1);
 			strong{
 				@include smallcaps($text-small*0.8);

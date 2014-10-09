@@ -12,6 +12,7 @@
 	<div class="featuredProducts section row no-space-top">
 		<?
 			$args = array( 
+				'post__not_in' => array($post->ID),
 				'post_type' => 'product', 
 				'posts_per_page' => 12 , 
 				'meta_key' => 'featured',
@@ -58,6 +59,8 @@ echo $feat_image ?>') no-repeat center center;">
 <!-- Javascript -->
 <!-- In the footer for better performance -->
 <script src="<?php echo get_bloginfo('template_directory');?>/build/js/waypoints.js"></script>
+<script src="<?php echo get_bloginfo('template_directory');?>/vendor/flexslider/jquery.flexslider-min.js"></script>
+<script src="<?php echo get_bloginfo('template_directory');?>/vendor/fitvids/jquery.fitvids.js"></script>
 <script src="<?php echo get_bloginfo('template_directory');?>/build/js/scripts.js"></script>
 
 <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

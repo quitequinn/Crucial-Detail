@@ -1,18 +1,29 @@
 html, body{
 	background: $color-black;
+	background: -moz-linear-gradient(top, rgba(0,0,0,1) 0%, rgba($color-black,1) 100%); 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,1)), color-stop(100%,rgba($color-black,1)));
+	background: -webkit-linear-gradient(top, rgba(0,0,0,1) 0%,rgba($color-black,1) 100%); 
+	background: -o-linear-gradient(top, rgba(0,0,0,1) 0%,rgba($color-black,1) 100%);
+	background: -ms-linear-gradient(top, rgba(0,0,0,1) 0%,rgba($color-black,1) 100%); 
+	background: linear-gradient(to bottom, rgba(0,0,0,1) 0%,rgba($color-black,1) 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='$color-black',GradientType=0 );
 	color: $color-white;
 	text-rendering: optimizeLegibility;
 	font-smoothing: subpixel-antialiased;
 	-webkit-font-smoothing: subpixel-antialiased;
-	overflow-y: hidden;
 }
 body{
-	overflow: hidden;
 	left: 0;
 	right: 0;
 	position: relative;
 	transition: left $trans;
+	z-index: 1;
 }
+
+ol, ul {
+margin-left: 0;
+}
+
 a, a:visited, .linkAlike{
 	color: rgba($color-white, 0.5);
 	transition: color $trans;
@@ -26,6 +37,8 @@ h1, h2, h3, h4, h5, h6, span, ul, ol, p, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, ul 
 	-webkit-font-smoothing: antialiased;
 }
 .content{
+	z-index: 1;
+	position: relative;
 	h4, h5, h6, span, ul, ol, p, h4 a, h5 a, h6 a, ul a, ol a, p a{
 		a, .linkAlike{
 		  	background-image: linear-gradient(to bottom,transparent 50%,rgba($color-white, 0.75) 50%);
@@ -35,6 +48,9 @@ h1, h2, h3, h4, h5, h6, span, ul, ol, p, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a, ul 
 		  	text-shadow: 2px 0 $color-black,4px 0 $color-black,-2px 0 $color-black,-4px 0 $color-black;
 		}
 	}
+}
+#content{
+	overflow-x:hidden;
 }
 .linkAlike:hover, a:hover{
 	color: rgba($color-white, 1);
@@ -73,6 +89,7 @@ h3{
 	width: 100%;
 	position: absolute;
 	top: 28px;
+	z-index: 9;
 	.topNav{
 		width: 100%;
 		> div{
@@ -113,13 +130,13 @@ h3{
 						background: rgba($color-white, 1);
 					}
 				}
-				.productIconBlock:hover{
-					width: 8px;
-					height: 8px;
-					margin: 1px 5px 5px 1px;
-					transition: all $trans;
-					color: rgba($color-white, 0.5);
-				}
+				// .productIconBlock:hover{
+				// 	width: 8px;
+				// 	height: 8px;
+				// 	margin: 1px 5px 5px 1px;
+				// 	transition: all $trans;
+				// 	color: rgba($color-white, 0.5);
+				// }
 			}
 			&:nth-of-type(1){
 				text-align: left;
@@ -147,7 +164,7 @@ h3{
 
 //PAGE HEADER
 #pageheader{
-  background-size: cover;
+  background-size: cover!important;
   width: 100%;
 }
 
@@ -168,7 +185,8 @@ h3{
 	position: fixed;
 	width: 10px;
 	bottom: 0;
-	left: -.5em;
+	left: 20px;
+	z-index: 99;
 	li{
 		list-style: none;
 		width: 10px;
@@ -288,6 +306,7 @@ footer{
 
 	p, a{
 		font-size: $text-small;
+		line-height: $text-small-lineHeight;
 		color: rgba($color-white, 1);
 		strong{
 			@include smallcaps($text-small*0.8);
@@ -299,7 +318,135 @@ footer{
 	}
 }
 
+//flexslider
+
+.flexslider{
+	background: $color-black!important;
+	position: absolute!important;
+	left: 0!important;
+	width: 100%!important;
+	z-index: -1!important;
+	.fleximg{
+		background-size: cover!important;
+	}
+	.flex-control-nav{
+		display: none;
+	}
+}
+.flexnav{
+	position: absolute;
+	left: 0;
+	width: 100%;
+	svg{
+		height: 60px;
+		margin-top: -30px;
+		circle{
+			opacity: 0;
+			transition: all $trans;
+		}
+	}
+	a:hover{
+		svg circle{
+			opacity: 1;
+			transition: all $trans;
+		}
+	}
+	.flexprev{
+		left: 1em;
+		position: absolute;
+	}
+	.flexnext{
+		right: 1em;
+		position: absolute;
+	}
+}
+
+//tags
+.tags a:before {
+	content: ' – ';
+	color: rgba(255,255,255,.5);
+	opacity: 1;
+}
+.tags a:first-of-type:before {
+	content: '';
+	color: red;
+}
+
+//page share
+.productShare{
+	position: fixed;
+	right: 1.35em;
+	font-size: 20px;
+	width: 30px;
+	top: 64px;
+	z-index: 99;
+	a{
+		margin-bottom: 10px;
+		display: block;
+	}
+	a:hover{
+		opacity: 1;
+	}
+}
+
+//Specs
+.floatRight{
+	float: right;
+}
+.specs{
+	h1{
+		height: 208px;
+		margin-top: -17px;
+	}
+	.buy{
+		a, div{
+			width: 100%;
+			display: table;
+			background: $color-white;
+			margin: 1em 0;
+			height: 48px;
+			span{
+				color: $color-black;
+				text-align: center;
+				display: table-cell;
+				vertical-align: middle;
+			}
+		}
+	}
+}
 
 
+//DROP INS
+.dropIns{
+	.section{
+		margin: 80px auto;
+		@include max-screen($bp-medium){
+			margin: 56px auto;
+		}
+		@include max-screen($bp-small){
+			margin: 32px auto;
+		}
+	}
+}
+.dropIn-picture{
+	.imgDiv{
+		height:500px; 
+		display: table;
+		width: 100%;
+		.imgText{
+			display: table-cell;
+			vertical-align: middle;
+			text-align: center;
+			&.imgOverlay{
+				background: rgba($color-black,.5);
+			}
+		}
+	}
 
-
+}
+.dropIn-video{
+	width: 100%;
+	iframe{
+		width: 100%;
+	}
+}

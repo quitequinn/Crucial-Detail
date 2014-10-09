@@ -35,17 +35,19 @@ p {
  * Sizes for smaller and larger text
  */
 
-.text-small {
+.text-small, .text-small p {
 	font-size: 16px;
 	line-height: 24px;
 }
 $text-small: 16px;
+$text-small-lineHeight: 24px;
 
 .text-tall {
 	font-size: 20px;
 	line-height: 28px;
 }
 $text-tall: 20px;
+$text-tall-lineHeight: 28px;
 
 @media (min-width: $bp-medium) {
 	.text-tall {
@@ -63,7 +65,9 @@ $text-tall: 20px;
 	letter-spacing: .1em;
 	font-size: $font-size;
 }
-
+.smallcaps{
+	@include smallcaps($text-small);
+}
 /**
  * Alternate text colors
  */
@@ -303,6 +307,47 @@ h4,
 		@include type-size-calc-large(20px);
 	}
 }
+
+p,
+.p {
+	@include type-size-calc(32px);
+	@media (max-width: $bp-xlarge) {
+		@include type-size-calc-xlarge(32px);
+	}
+	@media (max-width: $bp-large) {
+		@include type-size-calc-large(32px);
+	}
+	@media (max-width: $bp-medium) {
+		@include type-size-calc-medium(32px);
+	}
+	@media (max-width: $bp-small) {
+		@include type-size-calc-small(32px);
+	}
+	@media (max-width: $bp-xsmall) {
+		@include type-size-calc-xsmall(32px);
+	}
+}
+
+.largeP p,
+.largeP .p{
+	@include type-size-calc(40px);
+	@media (max-width: $bp-xlarge) {
+		@include type-size-calc-xlarge(40px);
+	}
+	@media (max-width: $bp-large) {
+		@include type-size-calc-large(40px);
+	}
+	@media (max-width: $bp-medium) {
+		@include type-size-calc-medium(40px);
+	}
+	@media (max-width: $bp-small) {
+		@include type-size-calc-small(40px);
+	}
+	@media (max-width: $bp-xsmall) {
+		@include type-size-calc-xsmall(40px);
+	}
+}
+
 
 /**
  * Lines, Quotes and Emphasis
