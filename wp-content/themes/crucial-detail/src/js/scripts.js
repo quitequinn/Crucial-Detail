@@ -7,12 +7,14 @@
 ////////////////////////////////////////////////
  	//ProductBar
 	$( ".productBarButton" ).click(function() {
+		$('body').removeClass('openInfoBar');
 		$('body').toggleClass('openProductBar');
 	});
 
 ////////////////////////////////////////////////
  	//InfoBar
 	$( ".infoBarButton" ).click(function() {
+		$('body').removeClass('openProductBar');
 		$('body').toggleClass('openInfoBar');
 	});
 
@@ -25,18 +27,16 @@
 	//LAYOUT ADJ
 	function forwidth(){
 
-		//masthead width
-		$('#masthead').css("width", $(".container").width());
-		
+		var masthead = '#masthead{ width:'+ $(".emailSubscription .grid-full").width()+'px;}';
 		var winH = '.winH{ height:'+ $(window).height() +'px;}'; 
 		var winHalf = '.winHalf{ top:'+ ($(window).height()/2) +'px;}'; 
-		var hBottom = '.hbottom{ margin-top:'+ ($(window).height() - $('.hbottomTarget').height() - 150) +'px;}'; 
+		var hBottom = '.hbottom{ margin-top:'+ ($(window).height() - $('.hbottomTarget').height() - 80) +'px;}'; 
 		var productSquare = '.productBlock{height:'+ $(".productBlock").width() +'px;}'
 		var productIndexSquare = '.productIndexBlock{height:'+ $(".productIndexBlock").width() +'px;}'
 		// var stickey = '.stuck{left:'+ $('.sticky').offset().left +'px;}'
 
 		//var styling = '<style> .progressBar{margin-top:-'+ $('.progressBar').height()/2 +'px;} .winH{ height:'+ $(window).height() +'px;}</style>'
-		var styling = '<style>'+winH+winHalf+hBottom+productSquare+productIndexSquare+'</style>'
+		var styling = '<style>'+masthead+winH+winHalf+hBottom+productSquare+productIndexSquare+'</style>'
 		$('.jsdump').html(styling);
 	}
 	forwidth();

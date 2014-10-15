@@ -6,7 +6,7 @@
  */
 ?>
 
-<div id="st-container" class="st-container productBar">
+<div class="st-container productBar">
 	<div class="st-pusher">
 		<nav class="st-menu st-effect-7" id="menu-7">
 		<h4 class="container">Products</h4>
@@ -22,7 +22,7 @@
 					<div class="productBlockInfo centerOuterWrap">
 						<a class="centerWrap" href="<?php the_permalink() ?>">
 							<h3 class="no-space"><? echo get_field( "price" ); ?></h3>
-							<h4 class="no-space-top"><? the_title(); ?></h4>
+							<h4 class="no-space-top text-small"><? the_title(); ?></h4>
 						</a>
 					</div>
 				  </div>

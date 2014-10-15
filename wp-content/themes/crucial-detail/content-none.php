@@ -8,26 +8,14 @@
  */
 ?>
 
-<section class="no-results not-found">
-	<header class="page-header">
-		<h1 class="page-title"><?php _e( 'Nothing Found', 'crucial-detail' ); ?></h1>
-	</header><!-- .page-header -->
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
 
-	<div class="page-content">
-		<?php if ( is_home() && current_user_can( 'publish_posts' ) ) : ?>
+			<section class="no-results not-found">
+				<header class="page-header winH">
+					<h1 class="page-title">No Results</h1>
+				</header><!-- .page-header -->
+			</section>
+		</main><!-- #main -->
+	</div><!-- #primary -->
 
-			<p><?php printf( __( 'Ready to publish your first post? <a href="%1$s">Get started here</a>.', 'crucial-detail' ), esc_url( admin_url( 'post-new.php' ) ) ); ?></p>
-
-		<?php elseif ( is_search() ) : ?>
-
-			<p><?php _e( 'Sorry, but nothing matched your search terms. Please try again with some different keywords.', 'crucial-detail' ); ?></p>
-			<?php get_search_form(); ?>
-
-		<?php else : ?>
-
-			<p><?php _e( 'It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', 'crucial-detail' ); ?></p>
-			<?php get_search_form(); ?>
-
-		<?php endif; ?>
-	</div><!-- .page-content -->
-</section><!-- .no-results -->

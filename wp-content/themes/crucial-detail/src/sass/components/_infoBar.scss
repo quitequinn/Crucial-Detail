@@ -7,12 +7,22 @@
 	height: 100%;
 	transition: all $trans;
 	background: $color-black;
+	@include max-screen($bp-small){
+		width: 400px;
+	}
+	@include max-screen($bp-xsmall){
+		width: 100%;
+	}
 	.infoBarButton{
 		top: 21px;
 		position: absolute;
 		right: 540px;
 		font-size: 29px;
 		opacity: .5;
+		@include max-screen($bp-small){
+			right: 20px;
+			top: 16px;
+		}
 	}
 	.st-pusher{
 		position: relative;
@@ -89,6 +99,12 @@
 				font-weight: 900;
 			}
 		}
+		@include min-screen($bp-xsmall){
+			width: 50%;
+			float: left;
+			padding-left: 2.8%;
+			padding-right: 2.8%;
+		}
 		a:hover{
 			color: rgba($color-white, 0.5);
 		}
@@ -96,21 +112,37 @@
 	.socialPrimary{
 		position: fixed;
 		top: 204px;
+		@include max-screen($bp-small){
+			position: relative;
+			top: initial;
+			padding-top: 1em;
+			padding-bottom: 1em;
+		}
 		.glyph-icon{
 			margin-top: 16px;
 			font-size: 30px;
 			margin-left: 8px;
+
+			@include max-screen($bp-small){
+				margin-top: 0!important;
+			}
 		}
 		.glyph-icon.glyph_icon_mail_circle{
 			margin-top: 0px;
 			font-size: 35px;
 			margin-bottom: -1px;
 			margin-left: 4px;
+			@include max-screen($bp-small){
+				top: 0;
+				font-size: 35px;
+				margin-left: 0;
+			}
 		}
 		a:before{
 			color: white;
 		}
 	}
+
 }
 
 .openInfoBar{
@@ -118,6 +150,9 @@
 	right: 500px;
 	left: initial;
 
+	@include max-screen($bp-small){	
+		right: 300px;
+	}
 	.hidder{
 		z-index: 1;
 		display: block;

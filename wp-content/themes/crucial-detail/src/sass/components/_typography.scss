@@ -187,28 +187,28 @@ dt {
 $line-height: 1.4;
 
  @mixin type-size-calc($font-size) {
-	font-size: $font-size*1.0;
-	line-height: $font-size*1.0*$line-height;
+	font-size: $font-size*1.25;
+	line-height: $font-size*1.25*$line-height;
 }
  @mixin type-size-calc-xlarge($font-size) {
+	font-size: $font-size*1;
+	line-height: $font-size*1*$line-height;
+}
+ @mixin type-size-calc-large($font-size) {
 	font-size: $font-size*0.8;
 	line-height: $font-size*0.8*$line-height;
 }
- @mixin type-size-calc-large($font-size) {
+ @mixin type-size-calc-medium($font-size) {
 	font-size: $font-size*0.65;
 	line-height: $font-size*0.65*$line-height;
 }
- @mixin type-size-calc-medium($font-size) {
-	font-size: $font-size*0.525;
-	line-height: $font-size*0.525*$line-height;
-}
  @mixin type-size-calc-small($font-size) {
-	font-size: $font-size*0.425;
-	line-height: $font-size*0.425*$line-height;
+	font-size: $font-size*0.55;
+	line-height: $font-size*0.55*$line-height;
 }
  @mixin type-size-calc-xsmall($font-size) {
-	font-size: $font-size*0.35;
-	line-height: $font-size*0.35*$line-height;
+	font-size: $font-size*0.5;
+	line-height: $font-size*0.5*$line-height;
 }
 /**
  * Heading styling for h1 through h6 elements.

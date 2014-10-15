@@ -5,12 +5,12 @@
  * @package Crucial Detail
  */
 ?>
-<div id="st-container" class="st-container infoBar">
+<div class="st-container infoBar">
 	<div class="st-pusher">
 
 		<div class="grid-third socialPrimary">
-			<a class="glyph-icon glyph_icon_mail_circle" href="#"></a><br/>
-			<a class="glyph-icon glyph_icon-facebook" href="#"></a><br/>
+			<a class="glyph-icon glyph_icon_mail_circle" href="#"></a><span class="hideSmall"><br/></span>
+			<a class="glyph-icon glyph_icon-facebook" href="#"></a><span class="hideSmall"><br/></span>
 			<a class="glyph-icon glyph_icon-twitter" href="#"></a>
 		</div>
 		<div class="grid-two-third offset-third">

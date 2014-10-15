@@ -9,7 +9,8 @@
 
 // Colors
 $color-primary: #0088cc;
-$color-black: #000014;
+$color-black: #000000;
+//#000014
 $color-white: #ffffff;
 
 $color-success: #377f31; // Green
@@ -59,8 +60,7 @@ $grid-sizes: ( // name: width
 );
 $grid-breakpoints: ( // breakpoint, prefix, include offsets (boolean)
 	($bp-xsmall, ".row-start-xsmall", false),
-	($bp-small, ".row-start-small", false),
-	($bp-medium, null, true)
+	($bp-small, null, true)
 );
 
 
