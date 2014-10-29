@@ -6,6 +6,10 @@
 	height: 100%;
 	transition: all $trans;
 	background: $color-black;
+
+	@include max-screen($bp-xsmall){
+		width: 100%;
+	}
 	h4{
 		padding-top: 28px;
 	}
@@ -13,11 +17,19 @@
 		top: 21px;
 		position: absolute;
 		left: 360px;
+		@include max-screen($bp-xsmall){
+			right: initial;
+			left: 24px;
+		}
 		font-size: 29px;
 		opacity: .5;
 	}
 	.half{
 		width: 200px;
+
+		@include max-screen($bp-xsmall){
+			width: 100%;
+		}
 	}
 	.st-pusher{
 		position: relative;
@@ -40,6 +52,10 @@
 		.st-menu {
 			background: $color-gray-dark;
 			width: 400px;
+
+			@include max-screen($bp-xsmall){
+			width: 100%;
+			}
 		}
 		.productSidebar{
 			z-index: 9;

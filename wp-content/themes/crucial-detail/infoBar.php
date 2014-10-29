@@ -26,7 +26,28 @@
 				<?php the_field('apearances', 19); ?>
 			</div>
 			<div class="grid-half">
-				<?php the_field('locations', 19); ?>
+
+
+				<? 
+				if(get_field('locations', 19)){ ?>
+					<p>
+					<? while(has_sub_field('locations', 19)){ ?>
+						<strong><? the_sub_field('location'); ?></strong>
+						<? if( have_rows('rows') ){ ?>
+							<? while( have_rows('rows')){ the_row();?>
+								<br/>
+								<? if( get_sub_field('link')) { ?>
+									<a href="<?the_sub_field('link');?>"><?the_sub_field('text');?></a>
+								<? } else { ?>
+									<span><?the_sub_field('text');?></span>
+								<? } ?>
+							<? } ?>
+							<br/>
+						<? } ?>
+						<br/>
+					<? } ?>
+					</p>
+				<? } ?>
 			</div>
 		</div>
 	</div>

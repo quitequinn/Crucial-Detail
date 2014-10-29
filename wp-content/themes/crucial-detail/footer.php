@@ -10,15 +10,16 @@
 
 	</div><!-- #content -->
 	<div class="featuredProducts section row no-space-top">
-		<?
+		<?	wp_reset_postdata();
+
 			$args = array( 
 				'post__not_in' => array($post->ID),
 				'post_type' => 'product', 
 				'posts_per_page' => 12 , 
 				'meta_key' => 'featured',
 				'meta_value' => true);
-			$loop = new WP_Query( $args );
-			while ( $loop->have_posts() ) : $loop->the_post();?>
+			query_posts( $args ); 
+			while ( have_posts() ) : the_post();?>
 			  <div class="productBlock third" style="background: url('<?$feat_image = wp_get_attachment_url( get_post_thumbnail_id($post->ID) );
 echo $feat_image ?>') no-repeat center center;">
 				<div class="productBlockInfo centerOuterWrap">
@@ -30,7 +31,7 @@ echo $feat_image ?>') no-repeat center center;">
 				</div>
 			  </div>
 			<? endwhile;
-			wp_reset_postdata();
+
 		?>
 	</div>
 	<footer id="colophon" class="site-footer container section" role="contentinfo">
@@ -42,7 +43,29 @@ echo $feat_image ?>') no-repeat center center;">
 		</div>
 		<div class="row info">
 			<div class="grid-half offset-fourth"><?php the_field('footer_info', 19); ?></div>
-			<div class="grid-fourth"><?php the_field('locations', 19); ?></div>
+
+<? query_posts( $args ); wp_reset_postdata();
+if(get_field('locations', 19)){ ?>
+	<p>
+	<? while(has_sub_field('locations', 19)){ ?>
+		<strong><? the_sub_field('location'); ?></strong>
+		<? if( have_rows('rows') ){ ?>
+			<? while( have_rows('rows')){ the_row();?>
+				<br/>
+				<? if( get_sub_field('link')) { ?>
+					<a href="<?the_sub_field('link');?>"><?the_sub_field('text');?></a>
+				<? } else { ?>
+					<span><?the_sub_field('text');?></span>
+				<? } ?>
+			<? } ?>
+			<br/>
+		<? } ?>
+		<br/>
+	<? } ?>
+	</p>
+<? } ?>
+
+
 		</div>
 	</footer><!-- #colophon -->
 	<section class="footer">
@@ -58,6 +81,7 @@ echo $feat_image ?>') no-repeat center center;">
 
 <!-- Javascript -->
 <!-- In the footer for better performance -->
+<script src="<?php echo get_bloginfo('template_directory');?>/build/js/jquery.scrolly.js"></script>
 <script src="<?php echo get_bloginfo('template_directory');?>/build/js/waypoints.js"></script>
 <script src="<?php echo get_bloginfo('template_directory');?>/vendor/flexslider/jquery.flexslider-min.js"></script>
 <script src="<?php echo get_bloginfo('template_directory');?>/vendor/fitvids/jquery.fitvids.js"></script>

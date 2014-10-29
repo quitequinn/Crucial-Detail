@@ -77,10 +77,16 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 <link rel="stylesheet" href="<?php echo get_bloginfo('template_directory');?>/vendor/flexslider/flexslider.css" type="text/css">
 
 <!-- CDN Dependencies -->
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+ -->
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+<!-- TEMP CDN Dependencies -->
+<script src="<?php echo get_bloginfo('template_directory');?>/build/js/jquery-local.js"></script>
+<script src="<?php echo get_bloginfo('template_directory');?>/build/js/jqueryUI-local.js"></script>
+<script src="<?php echo get_bloginfo('template_directory');?>/build/js/underscore-local.js"></script>
 
 <!-- Type Dependencies -->
 <script src="//use.typekit.net/lgt3suf.js"></script>
@@ -123,7 +129,13 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 				</span>
 			</div>	
 			<div class="thoughtbutton">
-				<a href="thoughts">
+				<a href="
+				<? $args = array( 'posts_per_page' => 1, 'post_type' => 'thoughts' );
+				$myposts = get_posts( $args );
+				foreach ( $myposts as $post ) : setup_postdata( $post ); 
+				the_permalink(); 
+				endforeach; 
+				wp_reset_postdata(); ?>">
 					<i class="iconfont glyph-icon glyph_icon-idea"></i>
 				</a>
 			</div>	

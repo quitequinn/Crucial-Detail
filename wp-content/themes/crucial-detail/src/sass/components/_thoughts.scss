@@ -1,0 +1,81 @@
+.thought{
+	.container{
+		z-index: 1;
+		position: relative;
+		@include min-screen($bp-large){
+			max-width: 1000px;
+		}
+
+		@include max-screen($bp-small){
+			width: 100%;
+		}
+	}
+	h1.hbottom{
+		@include min-screen($bp-medium){
+			text-align: left!important;
+		}
+		top: -50px;
+		position: relative;
+	}
+	.flexslider{
+		background: $color-gray-dark!important;
+		.slides {
+			opacity: .25;
+		}
+	}
+	.container{
+		.colorBK{
+			background: $color-gray-dark!important;
+			box-shadow: 0px 0px 20px 10px rgba(0,0,0,.25);
+			padding: 100px;
+			@include max-screen($bp-medium){
+				padding: 50px;
+			}
+
+		}
+	}
+	.thoughtShare{
+		width: 20px;
+		float: right;
+		margin-top: -12.1em;
+		z-index: 99;
+		position: relative;
+		margin-right: -2.8%;
+
+		@include max-screen($bp-small){
+			width: 110%;
+			float: initial;
+			background: $color-gray-dark!important;
+			margin-top: 0;
+			z-index: 99;
+			position: relative;
+			margin-left: -2.8%;
+			padding: 50px 50px 0 50px;
+		}
+		a {
+			height: 40px;
+			display: block;
+			@include max-screen($bp-small){
+				display: inline-block;
+				margin: 10px 10px 10px 4px;
+			}
+		}
+	}
+	.subText{
+		@include max-screen($bp-small){
+			padding-top: 0!important;
+		}
+	}
+	.dropIns{
+		.grid-full{
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	.dropIn-video{
+		margin-top: -100px;
+		margin-bottom: -100px;
+	}
+
+
+}

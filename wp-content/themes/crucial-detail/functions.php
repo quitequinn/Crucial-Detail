@@ -134,7 +134,7 @@ require get_template_directory() . '/inc/jetpack.php';
  * Quinn's Functions
  */
 
-// ADD PRODUCT POST TYPE
+// ADD PRODUCT & THOUGHTS POST TYPE
 add_action( 'init', 'create_post_type' );
 function create_post_type() {
   register_post_type( 'product',
@@ -154,12 +154,47 @@ function create_post_type() {
       ),
       'public' => true,
       'has_archive' => true,
-      'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'custom-fields'),
+      'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail'),
+      'taxonomies' => array( 'post_tag' )
+	  // 'category'
+    )
+  );
+  register_post_type( 'thoughts',
+    array(
+      'labels' => array(
+        'name' 				 => __( 'Thoughts' ),
+        'singular_name' 	 => __( 'Thought' ),
+	    'edit_item'          => __( 'Edit Thought' ),
+	    'new_item'           => __( 'New Thought' ),
+	    'all_items'          => __( 'All Thoughts' ),
+	    'view_item'          => __( 'View Thought' ),
+	    'search_items'       => __( 'Search Thoughts' ),
+	    'not_found'          => __( 'No thoughts found' ),
+	    'not_found_in_trash' => __( 'No thoughts found in the Trash' ), 
+	    'parent_item_colon'  => '',
+	    'menu_name'          => 'Thoughts'
+      ),
+      'public' => true,
+      'has_archive' => true,
+      'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail'),
       'taxonomies' => array( 'post_tag' )
 	  // 'category'
     )
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 add_filter('pre_get_posts', 'query_post_type');
 function query_post_type($query) {
   if(is_category() || is_tag()) {
@@ -173,11 +208,19 @@ function query_post_type($query) {
     }
 }
 
+// EXCERPTS
+function new_excerpt_more( $more ) {
+	return '…';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+
 // NO COMMENTS
-// Removes from admin menu
+// Removes from admin menu AND POSTS
 add_action( 'admin_menu', 'my_remove_admin_menus' );
 function my_remove_admin_menus() {
     remove_menu_page( 'edit-comments.php' );
+    remove_menu_page( 'edit.php' );
 }
 // Removes from post and pages
 add_action('init', 'remove_comment_support', 100);

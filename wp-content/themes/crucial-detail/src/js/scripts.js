@@ -186,12 +186,37 @@ function urlencode(str) {
 
 
 
+////////////////////////////////////////////////
+	// //Paralaxx
+	// $('.parallax')
+	// 	margin-top: 2px;
+
+
+////////////////////////////////////////////////
+	//check tags
+	function checkTags(){
+		$('.tagBackground').each(function() {
+			tx = $(this).find('.p');
+			h2 = $(this).find('h2');
+			if (tx.height() > h2.height()) {
+				tx.css('position', 'relative');
+				h2.css('position', 'absolute');
+			}else{
+				tx.css('position', 'absolute');
+				h2.css('position', 'relative');
+			};
+			thisheight = $(this).height();
+			$(this).find('.tagIMG').css('height', thisheight + 'px');
+		});
+	}
+	if ($('.tag').length > 0) {checkTags()};
 
 
 ////////////////////////////////////////////////
 	//ON RESIZE
 	var updateLayout = _.debounce(function(e) {
 		forwidth();
+		if ($('.tag').length > 0) {checkTags()};
 	}, 500);
 	window.addEventListener("resize", updateLayout, false);
 
@@ -229,6 +254,8 @@ $(window).load(function() {
 			});
 	    }
 	});
+
+
 
 });
 

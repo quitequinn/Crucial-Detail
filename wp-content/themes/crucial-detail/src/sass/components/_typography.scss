@@ -243,7 +243,14 @@ h1,
 		@include type-size-calc-xsmall(160px);
 	}
 }
-
+.productPrice{
+	h1,.h1 {
+		@include type-size-calc-large(160px);
+		@media (max-width: $bp-xlarge) {
+			@include type-size-calc-large(160px);
+		}
+	}
+}
 h2,
 .h2 {
 	@include type-size-calc(120px);
@@ -313,6 +320,24 @@ p,
 	@include type-size-calc(32px);
 	@media (max-width: $bp-xlarge) {
 		@include type-size-calc-xlarge(32px);
+	}
+	@media (max-width: $bp-large) {
+		@include type-size-calc-large(32px);
+	}
+	@media (max-width: $bp-medium) {
+		@include type-size-calc-medium(32px);
+	}
+	@media (max-width: $bp-small) {
+		@include type-size-calc-small(32px);
+	}
+	@media (max-width: $bp-xsmall) {
+		@include type-size-calc-xsmall(32px);
+	}
+}
+.infoBar p, .infoBar .p{
+	@include type-size-calc-large(32px);
+	@media (max-width: $bp-xlarge) {
+		@include type-size-calc-large(32px);
 	}
 	@media (max-width: $bp-large) {
 		@include type-size-calc-large(32px);
