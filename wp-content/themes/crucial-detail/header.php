@@ -22,7 +22,7 @@
 <!-- OGG Title & Description -->
 <meta property="og:site_name" content=""/>
 <meta property="og:title" content="<?php wp_title( '|', true, 'right' ); ?>"/>
-<meta name="description" content=""> 
+<meta name="description" content="">
 <meta name="keywords" content="" />
 <meta property="og:description" content="<?php bloginfo('description'); ?> "/>
 <meta property="og:image" content="<?php bloginfo('template_directory'); ?>/fav.ico">
@@ -127,33 +127,34 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 					<div class="productIconBlock"></div>
 					<div class="productIconBlock"></div>
 				</span>
-			</div>	
+			</div>
 			<div class="thoughtbutton">
 				<a href="
 				<? $args = array( 'posts_per_page' => 1, 'post_type' => 'thoughts' );
 				$myposts = get_posts( $args );
-				foreach ( $myposts as $post ) : setup_postdata( $post ); 
-				the_permalink(); 
-				endforeach; 
+				foreach ( $myposts as $post ) : setup_postdata( $post );
+				the_permalink();
+				endforeach;
 				wp_reset_postdata(); ?>">
 					<i class="iconfont glyph-icon glyph_icon-idea"></i>
 				</a>
-			</div>	
+			</div>
 			<div class="homebutton">
 				<a class="homebuttonLink" href="/">
 					<i class="iconfont glyph-icon glyph_logo"></i>
+					<i class="iconfont glyph-icon glyph_wordmark"></i>
 				</a>
-			</div>	
+			</div>
 			<div class="cartbutton">
 				<a href="cart">
 					<i class="iconfont fa fa-shopping-cart"></i>
 				</a>
-			</div>	
+			</div>
 			<div class="infobutton">
 				<span class="linkAlike infoBarButton infoLink">
 					<i class="iconfont fa fa-info-circle"></i>
 				</span>
-			</div>	
+			</div>
 		</nav>
 	</header><!-- #masthead -->
 </div>
