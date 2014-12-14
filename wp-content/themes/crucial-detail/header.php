@@ -120,12 +120,9 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 <div class="hfeed site container">
 	<header id="masthead" class="site-header" role="banner">
 		<nav class="topNav">
-			<div class="productSidebarbutton">
+			<div class="cartbutton">
 				<span class="linkAlike productBarButton">
-					<div class="productIconBlock"></div>
-					<div class="productIconBlock"></div>
-					<div class="productIconBlock"></div>
-					<div class="productIconBlock"></div>
+					<i class="iconfont fa fa-shopping-cart"></i>
 				</span>
 			</div>
 			<div class="thoughtbutton">
@@ -145,9 +142,9 @@ add_action( 'wp_head', 'insert_fb_in_head', 5 ); ?>
 					<i class="iconfont glyph-icon glyph_wordmark"></i>
 				</a>
 			</div>
-			<div class="cartbutton">
-				<a href="cart">
-					<i class="iconfont fa fa-shopping-cart"></i>
+			<div class="productSidebarbutton">
+				<a href="projects">
+					<i class="iconfont fa fa-th"></i>
 				</a>
 			</div>
 			<div class="infobutton">

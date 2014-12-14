@@ -136,20 +136,6 @@ h1.hbottom{
 				height: 28px;
 				cursor: pointer;
 
-				.productIconBlock{
-					width: 10px;
-					height: 10px;
-					margin-right: 4px;
-					margin-bottom: 4px;
-					float: left;
-					background: rgba($color-white, 0.5);
-					transition: all $trans;
-				}
-				&:hover{
-					.productIconBlock{
-						background: rgba($color-white, 1);
-					}
-				}
 				// .productIconBlock:hover{
 				// 	width: 8px;
 				// 	height: 8px;
