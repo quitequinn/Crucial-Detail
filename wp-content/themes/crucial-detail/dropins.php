@@ -57,36 +57,63 @@
 	        </div>
 
         <? elseif( get_row_layout() == 'series' ): ?>
-
+        	</div> 
+        	</div>
 	        <div class="dropIn-text <?if ( get_sub_field('nav_section')){?>section<?}?>">
+				<? $image = get_sub_field('series_image');?>
+				<img src="<? echo $image['url'];?>">
 
-	        	<? get_sub_field('series_image');
-
-	        	if( have_rows('series') ): ?>
-	        	<div class="seriesCulumns">
-				<? while( have_rows('series') ): the_row(); 
-					$rows = 0;
+	        	<? if(have_rows('series')): ?>
+	        	<div class="seriesCulumns <?if(get_sub_field('overlap_image')){ echo "neg-space-top";}?>">
+				<? 
+				$rows = 0;
+				while( have_rows('series') ): the_row(); 
 					$rows = $rows+1;
-					endwhile; 
-					while( have_rows('series') ): the_row(); ?>
-					
-					<div class="grid-one-third">
+				endwhile;
+				while( have_rows('series') ): the_row(); 
+					if ($rows==1) {
+						$rowAmount='full';
+					}elseif ($rows==2) {
+						$rowAmount='half';
+					}elseif ($rows==3) {
+						$rowAmount='third';
+					}elseif ($rows==4) {
+						$rowAmount='fourth';
+					}elseif ($rows==5) {
+						$rowAmount='fifth';
+					}elseif ($rows==6) {
+						$rowAmount='sixth';
+					} ?>
+
+					<div class="grid-<?echo $rowAmount;?>">
 						<div class="productPrice">
-							<? echo get_field("price_series") ?>
+							<h1 class="no-space-bottom"><? echo get_field("price") ?></h1>
 						</div>
 						<div class="buy">
-							
+							<a href="#" class="textCenter addCart"><span><h4><b>Add to Cart</b></h4></span></a>
+
+							<? if( get_sub_field('availability') == 'Available' ) {?>
+								<a href="#" class="textCenter addCart"><span><h4><b>Add to Cart</b></h4></span></a>
+							<?} else if (get_sub_field('availability') == 'Back Order') {?>
+								<a href="#" class="textCenter backOrder"><span><h4><b>Back Order</b></h4></span></a>
+							<?} else if (get_sub_field('availability') == 'Sold Out') {?>
+								<div class="textCenter soldOut"><span><h4><b>Sold Out</b></h4></span></div>
+							<?}?>
 						</div>
-						<div class="specs">
-							<? echo get_field("specifications") ?>
+						<div class="specs text-small">
+							<? echo get_field("specs") ?>
 						</div>
 					</div>
 
 				<?php endwhile; ?>
 				</div>
-			<?php endif; ?>
+			<?php 
+			$rows = 0;
+			endif; ?>
 
 	        </div>
+			<div class="container">
+			<div class="grid-two-thirds text-small">
 
         <? elseif( get_row_layout() == 'video' ): ?>
         	</div> 

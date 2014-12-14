@@ -163,8 +163,8 @@
 		transition:all $trans;
 		z-index: 5;
 		right: 0px;
-		box-shadow: 2px 20px 20px rgba(0,0,0,.5);
-		border-right: 1px solid #222;
+		box-shadow: 2px 20px 20px rgba($color-black,.5);
+		border-left: 1px solid $color-black;
 
 		.st-pusher{
 		

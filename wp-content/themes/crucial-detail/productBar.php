@@ -9,7 +9,7 @@
 <div class="st-container productBar">
 	<div class="st-pusher">
 		<nav class="st-menu st-effect-7" id="menu-7">
-		<h4 class="container">Products</h4>
+		<h4 class="">Products</h4>
 		<a class="productBarButton" href="#"><i class="fa fa-times"></i></a>
 
 		<div class="featuredProducts row no-space-top">

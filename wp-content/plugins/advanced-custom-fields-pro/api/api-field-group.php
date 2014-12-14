@@ -120,7 +120,7 @@ function acf_get_field_groups( $args = false ) {
 		'posts_per_page'			=> -1,
 		'orderby' 					=> 'menu_order title',
 		'order' 					=> 'asc',
-		'suppress_filters'			=> false,
+		'suppress_filters'			=> false, // allow WPML to modify the query
 		'post_status'				=> 'publish',
 		'update_post_meta_cache'	=> false
 	));
@@ -367,7 +367,6 @@ function _acf_get_field_group_by_id( $post_id = 0 ) {
 *  @return	$field_group (array)
 */
 
-
 function _acf_get_field_group_by_key( $key = '', $search_trash = false ) {
 	
 	// vars
@@ -427,7 +426,6 @@ function _acf_get_field_group_by_key( $key = '', $search_trash = false ) {
 	return $field_group;
 	
 }
-
 
 
 /*
@@ -626,7 +624,7 @@ function acf_get_field_count( $field_group_id ) {
 		'post_type'			=> 'acf-field',
 		'orderby'			=> 'menu_order',
 		'order'				=> 'ASC',
-		'suppress_filters'	=> true, // allows WPML to work
+		'suppress_filters'	=> true, // DO NOT allow WPML to modify the query
 		'post_parent'		=> $field_group_id,
 		'fields'			=> 'ids',
 		'post_status'		=> 'publish, trash' // 'any' won't get trashed fields
@@ -641,6 +639,7 @@ function acf_get_field_count( $field_group_id ) {
 	return apply_filters('acf/get_field_count', count( $posts ), $field_group_id);
 	
 }
+
 
 /*
 *  acf_delete_field_group
@@ -926,5 +925,130 @@ function acf_get_field_group_style( $field_group ) {
 	// return	
 	return apply_filters('acf/get_field_group_style', $e, $field_group);
 }
+
+
+/*
+*  acf_import_field_group
+*
+*  This function will import a field group from JSON into the DB
+*
+*  @type	function
+*  @date	10/12/2014
+*  @since	5.1.5
+*
+*  @param	$field_group (array)
+*  @return	$id (int)
+*/
+
+function acf_import_field_group( $field_group ) {
+	
+	// vars
+	$ref = array();
+	$order = array();
+	
+	
+	// extract fields
+	$fields = acf_extract_var($field_group, 'fields');
+	
+	
+	// format fields
+	$fields = acf_prepare_fields_for_import( $fields );
+	
+	
+	// remove old fields
+	if( $field_group['ID'] ) {
+		
+		$db_fields = acf_get_fields_by_id( $field_group['ID'] );
+		$db_fields = acf_prepare_fields_for_import( $db_fields );
+		
+		
+		// get field keys
+		$keys = array();
+		foreach( $fields as $field ) {
+			
+			$keys[] = $field['key'];
+			
+		}
+		
+		
+		// loop over db fields
+		foreach( $db_fields as $field ) {
+			
+			// add to ref
+			$ref[ $field['key'] ] = $field['ID'];
+			
+			
+			if( !in_array($field['key'], $keys) ) {
+				
+				acf_delete_field( $field['ID'] );
+				
+			}
+			
+		}
+		
+	}
+		
+	
+	// save field group
+	$field_group = acf_update_field_group( $field_group );
+	
+	
+	// add to ref
+	$ref[ $field_group['key'] ] = $field_group['ID'];
+	
+	
+	// add to order
+	$order[ $field_group['ID'] ] = 0;
+	
+	
+	// add fields
+	foreach( $fields as $field ) {
+		
+		// add ID
+		if( !$field['ID'] && isset($ref[ $field['key'] ]) ) {
+			
+			$field['ID'] = $ref[ $field['key'] ];	
+			
+		}
+		
+		
+		// add parent
+		if( empty($field['parent']) ) {
+			
+			$field['parent'] = $field_group['ID'];
+			
+		} elseif( isset($ref[ $field['parent'] ]) ) {
+			
+			$field['parent'] = $ref[ $field['parent'] ];
+				
+		}
+		
+		
+		// add field menu_order
+		if( !isset($order[ $field['parent'] ]) ) {
+			
+			$order[ $field['parent'] ] = 0;
+			
+		}
+		
+		$field['menu_order'] = $order[ $field['parent'] ];
+		$order[ $field['parent'] ]++;
+		
+		
+		// save field
+		$field = acf_update_field( $field );
+		
+		
+		// add to ref
+		$ref[ $field['key'] ] = $field['ID'];
+		
+	}
+	
+	
+	// return new field group
+	return $field_group;
+	
+}
+
 
 ?>

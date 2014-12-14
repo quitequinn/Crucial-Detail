@@ -107,6 +107,39 @@ http://support.advancedcustomfields.com/
 
 == Changelog ==
 
+= 5.1.5 =
+* Taxonomy field: Fixed bug where values would not appear selected
+* Core: Added new JSON synchronisation functionality
+* Core: Minor fixes and improvements
+
+= 5.1.4 =
+* Taxonomy field: Major improvement to save/load setting allowing for different values on multiple sub fields
+* Google Map field: Fixed render glitch on sub fields when shown by a tab field
+* Code: Fixed bug where Select2 would continuously load when no results found
+* Core: Fixed bug where translated field groups were lost during DB migration to v5
+* Core: Minor fixes and improvements
+
+= 5.1.3 =
+* Repeater field: Added new 'block' layout style
+* Flexible Content field: Added new 'block' layout style
+* Core: Added new field setting 'wrapper' including width, class and id
+* Core: Minor JS speed improvement for sub field conditional logic
+* Core: Minor fixes and improvements
+* Language: Updated Dutch translation - thanks to Patrick Heiloo
+
+= 5.1.2 =
+* API: Fixed various bugs with the have_rows() function
+
+= 5.1.1 =
+* Image field: Added basic file uploader for non logged in users
+* File field: Added basic file uploader for non logged in users
+* API: Added $format_value parameter to the functions get_sub_field, the_sub_field and get_sub_field_object
+* API: Added $load_value parameter to the function get_sub_field_object
+* API: Added logic in have_rows function to allow for either field name or key
+* Core: Reverted acf_save_post function back to an action with priority of 10.
+* Core: Fixed compatibility bug with Shopp plugin
+* Field group: Fixed bug where sub fields were deleted when moving a repeater field to another group
+
 = 5.1.0 =
 * Google Map field: Fixed JS bug causing navigation prompt to incorrectly appear
 * Image field: Added width & height data next to preview_size settings
@@ -129,7 +162,6 @@ http://support.advancedcustomfields.com/
 * Core: Minor fixes and improvements
 * Language: Added Turkish translation - thanks to Ramazan POLAT
 * Language: Updated Persian translation - thanks to Kamel Kimiaei
-
 
 = 5.0.8 =
 * Checkbox field: Fixed PHP error when editing field default value

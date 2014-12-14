@@ -3,6 +3,15 @@
 	position: fixed;
 	z-index: -1;
 	left: -400px;
+	@include min-screen(700px){
+		left: -600px;
+	}
+	@include min-screen(900px){
+		left: -800px;
+	}
+	@include min-screen(1100px){
+		left: -1000px;
+	}
 	height: 100%;
 	transition: all $trans;
 	background: $color-black;
@@ -11,12 +20,23 @@
 		width: 100%;
 	}
 	h4{
-		padding-top: 28px;
+		// padding-top: 28px;
+		padding-top: 0;
+		padding-left: 1em;
 	}
 	.productBarButton{
 		top: 21px;
 		position: absolute;
 		left: 360px;
+		@include min-screen(700px){
+			left: 560px;
+		}
+		@include min-screen(900px){
+			left: 760px;
+		}
+		@include min-screen(1100px){
+			left: 960px;
+		}
 		@include max-screen($bp-xsmall){
 			right: initial;
 			left: 24px;
@@ -52,9 +72,17 @@
 		.st-menu {
 			background: $color-gray-dark;
 			width: 400px;
-
+			@include min-screen(700px){
+				width: 600px;
+			}
+			@include min-screen(900px){
+				width: 800px;
+			}
+			@include min-screen(1100px){
+				width: 1000px;
+			}
 			@include max-screen($bp-xsmall){
-			width: 100%;
+				width: 100%;
 			}
 		}
 		.productSidebar{
@@ -118,8 +146,8 @@
 		transition:all $trans;
 		z-index: 5;
 		left: 0px;
-		box-shadow: 2px 20px 20px rgba(0,0,0,.5);
-		border-right: 1px solid #222;
+		box-shadow: 2px 20px 20px rgba($color-black,.5);
+		border-right: 1px solid $color-black;
 
 		#menu-7{
 			max-height: 100%;

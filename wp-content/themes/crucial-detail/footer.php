@@ -34,6 +34,53 @@ echo $feat_image ?>') no-repeat center center;">
 
 		?>
 	</div>
+
+	<div class="featuredProducts section row no-space-top">
+		<?	wp_reset_postdata();
+
+			$args = array( 
+				'post__not_in' => array($post->ID),
+				'post_type' => 'thought', 
+				'posts_per_page' => 4 , 
+				'meta_key' => 'featured',
+				'meta_value' => true);
+			query_posts( $args ); 
+			while ( have_posts() ) : the_post();?>
+			<a href="<?php the_permalink() ?>">
+				<div class="grid-full">
+					<h2><? the_title(); ?></h3>
+				</div>
+				
+		
+				<div class="grid-full colorBK subText">
+					<div class="tags">
+						<p class="text-small smallcaps"><strong>
+						<? $posttags = get_the_tags();
+						if ($posttags) {
+						  foreach($posttags as $tag) {?>
+						  	<a href="<?php echo get_tag_link($tag);?>">
+						    <? echo $tag->name; ?>
+						    </a>
+						  <?}
+						} ?>
+						</strong></p>
+					</div>
+					<div class="textWrap section largeP maxTextWidth">
+						<?php echo the_content();?>
+					</div>
+				</div>
+			</a>
+			<? endwhile;
+
+		?>
+	</div>
+
+
+
+
+
+
+
 	<footer id="colophon" class="site-footer container section" role="contentinfo">
 		<div class="row emailSubscription">
 			<div class="grid-full">

@@ -5,18 +5,37 @@
 		type: 'image',
 		$el: null,
 		
+		actions: {
+			'ready':	'initialize',
+			'append':	'initialize'
+		},
+		
 		events: {
 			'click [data-name="add"]': 		'add',
 			'click [data-name="edit"]': 	'edit',
 			'click [data-name="remove"]':	'remove',
+			'change input[type="file"]':	'change'
 		},
 		
 		focus: function(){
 			
+			// get elements
 			this.$el = this.$field.find('.acf-image-uploader');
 			
-			this.settings = acf.get_data( this.$el );
+			// get options
+			this.o = acf.get_data( this.$el );
 			
+		},
+		
+		initialize: function(){
+			
+			// add attribute to form
+			if( this.$el.hasClass('basic') ) {
+				
+				this.$el.closest('form').attr('enctype', 'multipart/form-data');
+				
+			}
+				
 		},
 		
 		add: function() {
@@ -39,7 +58,7 @@
 				'mode'		: 'select',
 				'type'		: 'image',
 				'multiple'	: $repeater.exists(),
-				'library'	: this.settings.library,
+				'library'	: this.o.library,
 				'select'	: function( attachment, i ) {
 					
 					// select / add another image field?
@@ -125,9 +144,9 @@
 			
 			
 			// check for preview size
-			if( acf.isset(attachment.attributes, 'sizes', this.settings.preview_size, 'url') ) {
+			if( acf.isset(attachment.attributes, 'sizes', this.o.preview_size, 'url') ) {
 	    	
-		    	image.url = attachment.attributes.sizes[ this.settings.preview_size ].url;
+		    	image.url = attachment.attributes.sizes[ this.o.preview_size ].url;
 		    	
 	    	}
 	    	
@@ -193,6 +212,12 @@
 	        
 			// remove class
 			this.$el.removeClass('has-value');
+			
+		},
+		
+		change: function( e ){
+			
+			this.$el.find('[data-name="id"]').val( e.$el.val() );
 			
 		}
 		

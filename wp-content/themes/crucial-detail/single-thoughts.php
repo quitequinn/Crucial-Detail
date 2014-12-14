@@ -32,15 +32,13 @@ get_header(); ?>
 							<div class="flexnav winHalf">
 								<a href="#" class="flexprev">
 									<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="72.164px" height="159.687px" viewBox="0 0 72.164 159.687" enable-background="new 0 0 72.164 159.687" xml:space="preserve">
-										<path fill="#FFFFFF" d="M72.164,159.687c-39,0-72.164-35.818-72.164-79.845C0,35.816,33.164,0,72.164,0v6.104
-											c-36,0-66.061,33.079-66.061,73.738c0,40.662,30.061,73.741,66.061,73.741V159.687z"/>
+										<polygon fill="#FFFFFF" points="70.043,151.214 -1.327,79.844 70.169,8.348 74.411,12.59 7.158,79.844 74.285,146.971"/>
 										<circle fill="#FFFFFF" cx="72.164" cy="79.844" r="16.5"/>
 									</svg>
 								</a>
 								<a href="#" class="flexnext">
 									<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="72.164px" height="159.687px" viewBox="0 0 72.164 159.687" enable-background="new 0 0 72.164 159.687" xml:space="preserve">
-										<path fill="#FFFFFF" d="M0.164,0c39,0,72.164,35.818,72.164,79.845c0,44.026-33.164,79.842-72.164,79.842v-6.104
-											c36,0,66.061-33.079,66.061-73.738c0-40.662-30.061-73.741-66.061-73.741V0z"/>
+										<polygon fill="#FFFFFF" points="2.368,8.348 73.738,79.718 2.242,151.214 -2,146.971 65.253,79.718 -1.874,12.59 	"/>
 										<circle fill="#FFFFFF" cx="0.164" cy="79.844" r="16.5"/>
 									</svg>
 								</a>
